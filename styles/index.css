@@ -54,9 +54,6 @@ input[type="checkbox"]:checked ~ .checkbox .checkbox-icon {
 }
 
 .password-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: white;
   border-radius: 6px;
   width: 650px;
@@ -67,14 +64,27 @@ input[type="checkbox"]:checked ~ .checkbox .checkbox-icon {
   font-weight: 500;
   font-size: 26px;
   font-family: "Fira Code", monospace;
-
   word-break: break-all;
+}
+
+.password-area span {
+  word-break: break-all;
+}
+
+.password-area__numbers {
+  color: #0066ff;
+}
+
+.password-area__symbols {
+  color: tomato;
 }
 
 .manage-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  user-select: none;
 }
 
 label {
@@ -99,6 +109,30 @@ label:first-child {
   border-radius: 6px;
   margin-top: 12px;
   padding-left: 38px;
+
+  user-select: none;
+}
+
+.check-line-icon {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+
+  transform: translateX(-150%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.copy-icon {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+#copy-btn.active .copy-icon {
+  transform: translateX(150%);
+}
+
+#copy-btn.active .check-line-icon {
+  transform: translateX(0);
 }
 
 #refresh-btn {
@@ -111,6 +145,8 @@ label:first-child {
 }
 
 #copy-btn {
+  position: relative;
+  overflow: hidden;
   background: #0066ff;
   border-radius: 6px;
   padding: 8px;

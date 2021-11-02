@@ -5,12 +5,24 @@ const copyBtn = document.querySelector("#copy-btn");
 const refreshBtn = document.querySelector("#refresh-btn");
 const numbersLabel = document.querySelector("#numbers-label");
 const symbolsLabel = document.querySelector("#symbols-label");
+const checkLineIcon = document.querySelector(".check-line-icon");
 
 lengthInput.value = 20;
 lengthValue.textContent = lengthInput.value;
 
-let hasNumbers = false;
-let hasSymbols = false;
+const clipboard = new ClipboardJS(copyBtn);
+
+clipboard.on("success", function (e) {
+  copyBtn.classList.add("active");
+  e.clearSelection();
+
+  setTimeout(() => {
+    copyBtn.classList.remove("active");
+  }, 1500);
+});
+
+let hasNumbers = true;
+let hasSymbols = true;
 let length = lengthInput.value;
 
 const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -25,7 +37,7 @@ const generatePassword = (length = 8, chars) => {
   return password;
 };
 
-const createPassword = (length = 8, hasNumbers = false, hasSymbols = false) => {
+const createPassword = (length = 8, hasNumbers = true, hasSymbols = true) => {
   let chars = letters;
   hasNumbers ? (chars += numbers) : "";
   hasSymbols ? (chars += symbols) : "";
@@ -33,7 +45,25 @@ const createPassword = (length = 8, hasNumbers = false, hasSymbols = false) => {
 };
 
 const renderNewPassword = () => {
-  passwordArea.textContent = createPassword(length, hasNumbers, hasSymbols);
+  passwordArea.textContent = "";
+  const newPassword = createPassword(length, hasNumbers, hasSymbols);
+  const arrayOfPasswrod = [...newPassword];
+
+  arrayOfPasswrod.forEach((item) => {
+    if (/[0-9]/.test(item)) {
+      passwordArea.insertAdjacentHTML(
+        "beforeend",
+        `<span class="password-area__numbers">${item}</span>`
+      );
+    } else if (/\W/.test(item)) {
+      passwordArea.insertAdjacentHTML(
+        "beforeend",
+        `<span class="password-area__symbols">${item}</span>`
+      );
+    } else {
+      passwordArea.insertAdjacentHTML("beforeend", `<span>${item}</span>`);
+    }
+  });
 };
 
 lengthInput.addEventListener("input", (e) => {
