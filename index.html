@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Password Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <h1>Password Generator</h1>
+    <div class="wrapper">
+      <div class="password-area">a0usm4MHKiJ5eRbr5ymA</div>
+
+      <div class="manage-area">
+        <label id="numbers-label">
+          <input type="checkbox" />
+          <span class="checkbox">
+            <svg class="checkbox-icon">
+              <use href="./images/icons.svg#checked"></use>
+            </svg>
+          </span>
+          <span>numbers</span>
+        </label>
+
+        <label id="symbols-label">
+          <input type="checkbox" />
+          <span class="checkbox">
+            <svg class="checkbox-icon">
+              <use href="./images/icons.svg#checked"></use>
+            </svg>
+          </span>
+          <span>symbols</span>
+        </label>
+
+        <button id="refresh-btn">
+          <svg class="icon" width="24" height="24">
+            <use href="./images/icons.svg#refresh"></use>
+          </svg>
+        </button>
+
+        <button id="copy-btn">
+          <svg class="icon" width="24" height="24">
+            <use href="./images/icons.svg#copy"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="length-area">
+        <span>length</span>
+        <input id="length-input" type="range" min="8" max="100" />
+        <span id="length-value">8</span>
+      </div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

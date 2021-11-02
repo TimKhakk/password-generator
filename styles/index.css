@@ -1,0 +1,123 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: no-repeat url("/images/main-bg.svg"), #002233;
+  position: relative;
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.15em;
+  margin-bottom: 32px;
+  color: #ffffff;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+}
+
+.checkbox {
+  display: flex;
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  background: white;
+  position: relative;
+}
+
+.checkbox-icon {
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked ~ .checkbox .checkbox-icon {
+  opacity: 1;
+}
+
+.password-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 6px;
+  width: 650px;
+  padding: 16px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 26px;
+  font-family: "Fira Code", monospace;
+
+  word-break: break-all;
+}
+
+.manage-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+label:first-child {
+  margin-right: 20px;
+}
+
+.length-area {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid #b4b4b4;
+  width: 350px;
+  height: 55px;
+  border-radius: 6px;
+  margin-top: 12px;
+  padding-left: 38px;
+}
+
+#refresh-btn {
+  margin-left: auto;
+}
+
+#refresh-btn:hover .icon {
+  transition: 0.5s;
+  transform: rotate(180deg);
+}
+
+#copy-btn {
+  background: #0066ff;
+  border-radius: 6px;
+  padding: 8px;
+  margin-left: 24px;
+  transition: background 0.2s ease-in-out;
+}
+
+#copy-btn:hover {
+  background: #0458b9;
+}
